@@ -4,6 +4,7 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
+    """Custom Migration to populate the new tables (letting, address) with the current data."""
 
     dependencies = [
         ('lettings', '0001_initial'),
