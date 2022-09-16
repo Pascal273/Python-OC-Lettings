@@ -18,6 +18,7 @@ def index(request):
 # Sed tincidunt, dolor id facilisis fringilla, eros leo tristique lacus, it.
 # Nam aliquam dignissim congue. Pellentesque habitant morbi tristique senectus et netus et males
 def profile(request, username):
+    print('profile single view!!!')
     profile = Profile.objects.get(user__username=username)
     context = {'profile': profile}
     return render(request, 'profile.html', context)

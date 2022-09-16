@@ -7,7 +7,7 @@ from .models import Letting
 # Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
 # Cras eget scelerisque
 def index(request):
-    print('lettings index!!!')
+    print('lettings index view!!!')
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'index.html', context)
