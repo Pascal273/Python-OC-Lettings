@@ -17,7 +17,7 @@ jobs:
           command: pip install flake8==3.7.0
       - run:
           name: run flake8
-          command: flake8
+          command: flake8 .
 
   build-and-test:
     docker:
