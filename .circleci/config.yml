@@ -2,10 +2,23 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.1.1
+  flake8-orb: wearefair/flake8-orb@0.0.2
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
+  flake8_lint:
+    docker:
+      - image: 889883130442.dkr.ecr.us-west-2.amazonaws.com/fair-images:python-3.7.1
+    steps:
+      - checkout
+      - run:
+          name: install flake8
+          command: pip install flake8==3.7.0
+      - run:
+          name: run flake8
+          command: flake8
+
   build-and-test:
     docker:
       - image: cimg/python:3.10.7
