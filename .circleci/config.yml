@@ -26,7 +26,7 @@ jobs:
           # if you have a different name for your requirements file,
           # maybe one that combines your runtime and test requirements.
       - run:
-          name: linting
+          name: Linting -> flake8
           command: flake8
       - run:
           name: Run tests
