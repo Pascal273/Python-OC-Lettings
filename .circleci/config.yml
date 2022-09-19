@@ -18,6 +18,10 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
+      - run:
+          name: Linting -> flake8
+          command: flake8
+
       - python/install-packages:
           pkg-manager: pip
           # app-dir: ~/project/package-directory/
@@ -25,10 +29,6 @@ jobs:
           # pip-dependency-file: test-requirements.txt
           # if you have a different name for your requirements file,
           # maybe one that combines your runtime and test requirements.
-      - run:
-          name: Linting -> flake8
-          command: flake8
-
       - run:
           name: Run tests
           command: python manage.py test
