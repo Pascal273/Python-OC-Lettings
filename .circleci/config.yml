@@ -37,16 +37,13 @@ jobs:
   containerization:
     # Builds a Docker image of the site
     # and pushes it to the Docker Hub container registry.
-    #
     docker:
       - image: cimg/python:3.10.7
     steps:
-      - checkout
-      - python/install-packages:
-          pkg-manager: pip
+      - setup_remote_docker
       - run:
-          name: Run OC Lettings Site
-          command: python manage.py runserver
+          name: Build images of services declared in docker-compose.yml
+          command: docker-compose up -d
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
