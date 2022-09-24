@@ -45,6 +45,14 @@ jobs:
       - run:
           name: Build images of services declared in docker-compose.yml
           command: docker-compose up -d
+      - deploy:
+          name: Build and push Docker image
+          command: |
+            TAG="0.1.${CIRCLE_COMMIT_HASH}"
+            docker build -t pascal237/oc_lettings_site_build:$TAG .
+            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker push pascal237/oc_lettings_site_build:$TAG
+        
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
