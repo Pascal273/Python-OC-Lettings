@@ -52,14 +52,22 @@ jobs:
             docker build -t pascal237/oc_lettings_site_build:$TAG .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
             docker push pascal237/oc_lettings_site_build:$TAG
-        
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+  deploy-production:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build and push Docker image to Heroku
+          command: |
+            sudo curl https://cli-assets.heroku.com/install.sh | sh
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push web
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release web
+
 workflows:
-  sample: # This is the name of the workflow,
-    # feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  oc_lettings_ci/cd:
     jobs:
       - build-and-test
       - containerization
+      - deploy-production
