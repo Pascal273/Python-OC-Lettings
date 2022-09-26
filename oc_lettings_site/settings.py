@@ -21,7 +21,7 @@ if not IS_HEROKU:
 
 # ALLOWED_HOSTS = []
 if IS_HEROKU:
-    ALLOWED_HOSTS = ["*"]
+    ALLOWED_HOSTS = ["oc-lettings-01.herokuapp.com"]
 else:
     ALLOWED_HOSTS = []
 
