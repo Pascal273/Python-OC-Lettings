@@ -66,7 +66,7 @@ jobs:
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release web
 
 workflows:
-  oc_lettings_ci/cd:
+  sample:
     jobs:
       - build-and-test
       - containerization
