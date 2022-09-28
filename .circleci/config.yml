@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.1.1
-  heroku: circleci/heroku@2.0.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -59,17 +58,22 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build and push Docker image to Heroku
+          name: Deploy on Heroku
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a oc-lettings-01 web
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a oc-lettings-01 web
+            git push heroku master
+
+#      - run:
+#          name: Build and push Docker image to Heroku
+#          command: |
+#            sudo curl https://cli-assets.heroku.com/install.sh | sh
+#            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
+#            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a oc-lettings-01 web
+#            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a oc-lettings-01 web
 
 workflows:
   sample:
     jobs:
       - build-and-test
       - containerization
-#      - deploy-production
-      - heroku/deploy-via-git
+      - deploy-production
