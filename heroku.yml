@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile.heroku
 run:
-  web: gunicorn hello_django.wsgi:application
+  web: gunicorn oc_lettings_site.wsgi:application
