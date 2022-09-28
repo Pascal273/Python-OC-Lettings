@@ -12,5 +12,3 @@ RUN pip install -r requirements.txt
 COPY . .
 
 CMD ["gunicorn", "--bind", ":8000", "oc_lettings_site.wsgi:application"]
-
-#CMD gunicorn oc_lettings_site.wsgi:application
