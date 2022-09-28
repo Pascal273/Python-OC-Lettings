@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.1.1
+  heroku: circleci/heroku@2.0.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -70,4 +71,5 @@ workflows:
     jobs:
       - build-and-test
       - containerization
-      - deploy-production
+#      - deploy-production
+      - heroku/deploy-via-git
