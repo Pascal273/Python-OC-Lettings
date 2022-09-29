@@ -68,14 +68,18 @@ workflows:
     jobs:
       - build-and-test
       - containerization:
+          # only if build-and-test was successful
           requires:
             - build-and-test
+          # only master branch
           filters:
             branches:
               only: master
       - deploy-production:
+          # only if build-and-test was successful
           requires:
             - containerization
+          # only master branch
           filters:
             branches:
               only: master
