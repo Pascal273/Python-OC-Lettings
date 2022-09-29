@@ -70,6 +70,12 @@ workflows:
       - containerization:
           requires:
             - build-and-test
+          filters:
+            branches:
+              only: master
       - deploy-production:
           requires:
             - containerization
+          filters:
+            branches:
+              only: master
