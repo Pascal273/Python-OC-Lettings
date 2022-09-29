@@ -67,5 +67,9 @@ workflows:
   sample:
     jobs:
       - build-and-test
-      - containerization
-      - deploy-production
+      - containerization:
+          requires:
+            - build-and-test
+      - deploy-production:
+          requires:
+            - containerization
