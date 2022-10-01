@@ -45,7 +45,6 @@ jobs:
       - deploy:
           name: Build and push Docker image
           command: |
-            SECRET_KEY="${SECRET_KEY}"
             TAG="${CIRCLE_SHA1}"
             docker build -t pascal237/oc_lettings_site_build:$TAG .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
