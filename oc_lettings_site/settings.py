@@ -14,7 +14,7 @@ if not IS_HEROKU:
     DEBUG = True
 
 if IS_HEROKU:
-    ALLOWED_HOSTS = ["herokuapp.com"]
+    ALLOWED_HOSTS = ["oc-lettings-01.herokuapp.com"]
 else:
     ALLOWED_HOSTS = []
 
