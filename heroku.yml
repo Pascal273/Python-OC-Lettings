@@ -1,9 +1,9 @@
 build:
   docker:
     web: Dockerfile
-run:
-  web: gunicorn oc_lettings_site.wsgi:application
 release:
   image: web
   command:
     - python manage.py collectstatic --noinput
+run:
+  web: gunicorn oc_lettings_site.wsgi:application
