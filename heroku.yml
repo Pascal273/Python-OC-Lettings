@@ -1,0 +1,6 @@
+# only if Docker is created on heroku server:
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: gunicorn oc_lettings_site.wsgi:application
