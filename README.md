@@ -79,4 +79,19 @@ Using PowerShell, as above except:
 
 ## Deployment
 
+<details>
+<summary><b>Deploy directly to Heroku</b></summary><br>
+The fastest way to deploy and test the application on Heroku is to simply click the following link:
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pascal273/Python-OC-Lettings)
+
+Log into your heroku account, enter a name for the application and click deploy.
+</details>
+
+<details>
+<summary><b>Deploy directly to Docker</b></summary><br>
+
+[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/)
+
+</details>
+
