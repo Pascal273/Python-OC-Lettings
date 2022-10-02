@@ -1,4 +1,3 @@
-# only necessary if Docker-image is created on heroku server:
 build:
   docker:
     web: Dockerfile
