@@ -1,5 +1,8 @@
 {
   "name": "oc-lettings",
   "description": "13th Project for the Python-Software-Developer Path on Open Classrooms",
-  "repository": "https://github.com/Pascal273/Python-OC-Lettings"
+  "repository": "https://github.com/Pascal273/Python-OC-Lettings",
+  "buildpacks": [
+    { "url": "https://github.com/dockhero/heroku-buildpack-docker-compose.git" }
+  ]
 }
