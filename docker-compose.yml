@@ -4,7 +4,7 @@ services:
   web:
     env_file: .env
     image: oc_lettings_site
-    build: ../../..
+    build: .
     volumes:
       - .:/oc_lettings_site
     ports:
