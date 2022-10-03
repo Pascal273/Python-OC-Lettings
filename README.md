@@ -80,18 +80,50 @@ Using PowerShell, as above except:
 ## Deployment
 
 <details>
-<summary><b>Deploy directly to Heroku</b></summary><br>
-The fastest way to deploy and test the application on Heroku is to simply click the following link:
+<summary><b>Deploy directly to Heroku on one click</b></summary><br>
+The fastest way to deploy and test the application on Heroku is by clicking the following link:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pascal273/Python-OC-Lettings)
 
 Log into your heroku account, enter a name for the application and click deploy.
+All the required environment variables will be taken from this repo automatically.
+After the process is completed you will be able to visit and test the web application.
 </details>
 
 <details>
-<summary><b>Deploy directly to Docker</b></summary><br>
-
-[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/)
+<summary><b>Deploy the app from your system to Heroku</b></summary><br>
+<ul>
+  <li>
+    If you haven't already, log in to your Heroku account typing <code>heroku login</code>
+  </li>
+  <li>
+    Create a new app on either using the web UI (to pick an available name) <br>
+    or typing <code>heroku create</code> (wich will create the app with a random name)
+  </li>
+  <li>
+    Add the SECRET_KEY environment variable using web UI:<br>
+    app > Settings > Config Vars > Reveal Config Vars > Add <br>
+    KEY: <code>SECRET_KEY</code> VALUE: <code>SOME_SECRET_VALUE</code><br>
+    Or using cli: <code>heroku config:set SECRET_KEY=SOME_SECRET_VALUE -a HEROKU_APP_NAME</code>
+  </li>
+  <li>
+    Open the cli and navigate to the Python-OC-Lettings folder<br>
+  </li>
+  <li>
+    Initialize a git repository in a new or existing directory:<br>
+    <ul>
+      <li>initialize git: <code>git init</code></li>
+      <li>add heroku remote: <code>heroku git:remote -a HEROKU_APP_NAME</code></li>
+    </ul>
+  </li>
+  <li>
+    Commit your code to the repository and deploy it to Heroku using Git:
+    <ul>
+      <li>add files: <code>git add .</code></li>
+      <li>commit added files: <code>git commit -am "commit message"</code></li>
+      <li>deploy on heroku: <code>git push heroku master</code></li>
+    </ul>
+  </li>
+</ul>
 
 </details>
-
