@@ -81,12 +81,12 @@ Using PowerShell, as above except:
 
 <details>
 <summary><b>Deploy directly to Heroku on one click</b></summary><br>
-The fastest way to deploy and test the application on Heroku is by clicking the following link:
+The fastest way to deploy and test the application on Heroku is by clicking the following link:<br>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pascal273/Python-OC-Lettings)
 
-Log into your heroku account, enter a name for the application and click deploy.
-All the required environment variables will be taken from this repo automatically.
+Log into your heroku account, enter a name for the application and click deploy.<br>
+All the required environment variables will be taken from this repo automatically.<br>
 After the process is completed you will be able to visit and test the web application.
 </details>
 
