@@ -9,6 +9,8 @@ import profiles.urls
 # Sentry test function that causes an error
 def trigger_error(request):
     division_by_zero = 1 / 0
+    if division_by_zero:
+        pass
 
 
 urlpatterns = [
