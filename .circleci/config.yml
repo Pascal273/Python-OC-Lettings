@@ -46,21 +46,23 @@ jobs:
           name: Build and push Docker image
           command: |
             TAG="${CIRCLE_SHA1}"
+            DOCKER_REPO="${DOCKER_REPO}"
             docker build -t pascal237/oc_lettings_site_build:$TAG .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker push pascal237/oc_lettings_site_build:$TAG
+            docker push $DOCKER_REPO:$TAG
 
   deploy-production:
     machine: true
     steps:
       - checkout
       - run:
-          name: Build and push Docker image to Heroku
+          name: Push Docker image to Heroku for deployment
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
             HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a oc-lettings-01 web
             HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a oc-lettings-01 web
+          # optional:
 #          name: Deploy to Heroku in container from git
 #          command: |
 #            sudo curl https://cli-assets.heroku.com/install.sh | sh
