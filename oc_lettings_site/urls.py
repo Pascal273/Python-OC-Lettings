@@ -6,7 +6,7 @@ import lettings.urls
 import profiles.urls
 
 
-# Sentry test function that causes an error
+# Sentry test function that causes an uncaught ZeroDivisionError error
 def trigger_error(request):
     division_by_zero = 1 / 0
     if division_by_zero:
