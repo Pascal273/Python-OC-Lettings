@@ -109,7 +109,7 @@ they would be able to modify the cookies sent by the application.
 Generate secret key for the application:
 - You can visit https://djecrety.ir/ to generate a secret key.
 - Or use the get_random_secret_key() function present in django.core.management.utils:
-  - to do that run: `python manage.py shell` or and enter the following lines:
+  - to do that run: `python manage.py shell` and enter the following lines:
     ```
     from django.core.management.utils import get_random_secret_key
     print(get_random_secret_key())
