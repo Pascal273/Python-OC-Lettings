@@ -114,31 +114,54 @@ Generate secret key for the application:
     from django.core.management.utils import get_random_secret_key
     print(get_random_secret_key())
     ```
+- Copy and save the generated secret key!
 
 #### Accounts for the following platforms:
 
 1. A Github account with a repo in which this application was cloned to.
 
+
 2. A Docker account, to push the container image to.
 
-3. A Heroku account for deployment.
 
-4. A Sentry account to log uncaught errors and crashes of the application.
+3. A Sentry account to log uncaught errors and crashes of the application:
+
+  - After log in, go to `Projects` and click `Create Project`
+  - Select the platform: <b>DJANGO</b>
+  - Setup your default alert settings
+  - Enter a Project name
+  - Click on `Create Project`
+  - copy and save the value of the <b>dsn</b> variable > without quotation marks!
+
+4. A Heroku account for deployment:
+
+- Environment:
+  - After log in, click on `new` > `create a new app`
+  - Inside that app click on `Settings` > `Reveal Config Vars`
+  - Add the following <b>KEY | VALUE</b> pairs:
+    - SECRET_KEY | -your generated secret key-
+    - SENTRY_DSN | -your sentry dsn-
+
+
+- If you don't have an API Key for heroku already, generate your HEROKU_API_KEY:
+  - click on `Account` > `Account Settings`
+  - inside the account tab scroll down to API Key
+  - click on `Generate API Key`
+  
 
 5. A Circleci account to that connects to the git repo of this project:
 - Inside your project go to: `Project Settings` > `Environment Variables`
 - click on `Add Environment Variable`
-- add the following Name | Value pairs to your environment:
-  - SECRET_KEY | -your generated secret key-
+- add the following <b>KEY | VALUE</b> pairs to your environment:
   - DOCKER_LOGIN | -your docker profile name-
   - DOCKER_PASSWORD | -your docker password-
-  - DOCKER_REPO | -your docker repository name-
+  - DOCKER_REPO | -your docker repository-
   - HEROKU_API_KEY | -your heroku api key-
   - HEROKU_APP_NAME | -your heroku app name-
 
 
 <details>
-<summary><b>To test the application you can Deploy it to Heroku on one click</b></summary><br>
+<summary><b>You can Deploy it to Heroku on one click to check it out</b></summary><br>
 The fastest way to deploy and test the application on Heroku is by clicking the following link:<br>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pascal273/Python-OC-Lettings)
