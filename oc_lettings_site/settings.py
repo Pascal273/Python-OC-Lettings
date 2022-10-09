@@ -11,6 +11,8 @@ IS_HEROKU = "DYNO" in os.environ
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+# IMPORTANT!:
+# Add your SECRET_KEY to the environment variables in Production, or it will be randomly generated!
 SECRET_KEY = os.environ.get('SECRET_KEY', default=get_random_secret_key())
 
 if not IS_HEROKU:
