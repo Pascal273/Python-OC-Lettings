@@ -11,5 +11,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+# collect static files
+RUN python manage.py collectstatic --noinput
+
 # run gunicorn
 CMD gunicorn oc_lettings_site.wsgi:application --bind :$PORT

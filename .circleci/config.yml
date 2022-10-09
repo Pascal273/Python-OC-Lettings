@@ -42,6 +42,9 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+          name: run collectstatic
+          command: python manage.py collectstatic --noinput
       - deploy:
           name: Build and push Docker image
           command: |
