@@ -1,6 +1,6 @@
 import os
 import sentry_sdk
-# from django.core.management.utils import get_random_secret_key
+from django.core.management.utils import get_random_secret_key
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -11,8 +11,7 @@ IS_HEROKU = "DYNO" in os.environ
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
-# , default=get_random_secret_key()
+SECRET_KEY = os.environ.get('SECRET_KEY', default=get_random_secret_key())
 
 if not IS_HEROKU:
     DEBUG = True
