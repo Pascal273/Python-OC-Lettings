@@ -88,15 +88,57 @@ Everytime a code change is pushed to the git repository on any branch, it trigge
 - run a flake8 check
 - run a set of unittests
 
-Changes to the master branch also trigger a containerization job that will:
-- Build a docker image of that application inside a container
-- Push that image to the dockerhub repository
+Only changes to the master branch will additionally trigger:
+- A containerization job that will:
+  - Only execute after the test job was successful!
+  - Build a docker image of that application inside a container
+  - Push that image to the dockerhub repository
 
-As well as a Deployment job that will:
-- 
+- A Deployment job that will:
+  - Only execute after the containerization was a success!
+  - Push and deploy that docker image to heroku.
+
+### Required configuration
+
+#### SECRET_KEY
+
+The Django secret key is used to provide cryptographic signing.
+This key is mostly used to sign session cookies. If one were to have this key, 
+they would be able to modify the cookies sent by the application.
+
+Generate secret key for the application:
+- You can visit https://djecrety.ir/ to generate a secret key.
+- Or use the get_random_secret_key() function present in django.core.management.utils:
+  - to do that run: `python manage.py shell` or and enter the following lines:
+    ```
+    from django.core.management.utils import get_random_secret_key
+    print(get_random_secret_key())
+    ```
+
+#### Accounts for the following platforms:
+
+1. A Github account with a repo in which this application was cloned to.
+
+2. A Docker account, to push the container image to.
+
+3. A Heroku account for deployment.
+
+4. A Sentry account to log uncaught errors and crashes of the application.
+
+5. A Circleci account to that connects to the git repo of this project:
+- Inside your project go to: `Project Settings` > `Environment Variables`
+- click on `Add Environment Variable`
+- add the following Name | Value pairs to your environment:
+  - SECRET_KEY | -your generated secret key-
+  - DOCKER_LOGIN | -your docker profile name-
+  - DOCKER_PASSWORD | -your docker password-
+  - DOCKER_REPO | -your docker repository name-
+  - HEROKU_API_KEY | -your heroku api key-
+  - HEROKU_APP_NAME | -your heroku app name-
+
 
 <details>
-<summary><b>Deploy directly to Heroku on one click</b></summary><br>
+<summary><b>To test the application you can Deploy it to Heroku on one click</b></summary><br>
 The fastest way to deploy and test the application on Heroku is by clicking the following link:<br>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pascal273/Python-OC-Lettings)
