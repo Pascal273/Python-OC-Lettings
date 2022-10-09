@@ -10,7 +10,7 @@ IS_HEROKU = "DYNO" in os.environ
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 if not IS_HEROKU:
     DEBUG = True
