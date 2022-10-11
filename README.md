@@ -149,7 +149,7 @@ Generate secret key for the application:
   - click on `Generate API Key`
   
 
-5. A Circleci account to that connects to the git repo of this project:
+5. A Circleci account, that connects to the git repo of this project:
 - Inside your project go to: `Project Settings` > `Environment Variables`
 - click on `Add Environment Variable`
 - add the following <b>KEY | VALUE</b> pairs to your environment:
@@ -161,7 +161,7 @@ Generate secret key for the application:
 
 
 <details>
-<summary><b>You can Deploy it to Heroku on one click to check it out</b></summary><br>
+<summary><b>You can Deploy the application using this repo to Heroku on one click to check it out</b></summary><br>
 The fastest way to deploy and test the application on Heroku is by clicking the following link:<br>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Pascal273/Python-OC-Lettings)
