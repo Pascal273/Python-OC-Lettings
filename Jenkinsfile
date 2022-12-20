@@ -12,12 +12,12 @@ pipeline {
                 sh 'python manage.py test'
             }
         }
-        stage('containerization') {
-            steps {
-                sh 'docker build -t pascal237/oc_lettings_site_jenkins:latest .'
-                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
-                sh 'docker push pascal237/oc_lettings_site_jenkins:latest'
-            }
-        }
+//         stage('containerization') {
+//             steps {
+//                 sh 'docker build -t pascal237/oc_lettings_site_jenkins:latest .'
+//                 sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+//                 sh 'docker push pascal237/oc_lettings_site_jenkins:latest'
+//             }
+//         }
     }
 }
