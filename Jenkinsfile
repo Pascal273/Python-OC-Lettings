@@ -4,14 +4,14 @@ pipeline {
 //         DOCKERHUB_CREDENTIALS = credentials('DOCKERHUB_CREDENTIALS')
 //     }
 //     stages {
-//         stage('build-and-test') {
-//             steps {
-//                 sh 'pip install -r requirements.txt'
-//                 sh 'python manage.py collectstatic --noinput'
-//                 sh 'flake8'
-//                 sh 'python manage.py test'
-//             }
-//         }
+        stage('build-and-test') {
+            steps {
+                sh 'pip install -r requirements.txt'
+                sh 'python manage.py collectstatic --noinput'
+                sh 'flake8'
+                sh 'python manage.py test'
+            }
+        }
 //         stage('containerization') {
 //             steps {
 //                 sh 'docker build -t pascal237/oc_lettings_site_jenkins:latest .'
