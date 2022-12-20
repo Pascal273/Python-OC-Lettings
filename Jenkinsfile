@@ -1,6 +1,5 @@
 pipeline {
-//     agent { docker { image 'python:3.10.7-alpine' } }
-    agent any
+    agent { docker { image 'python:3.10.7-alpine' } }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('DOCKERHUB_CREDENTIALS')
     }
