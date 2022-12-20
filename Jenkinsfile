@@ -3,7 +3,7 @@ pipeline {
 //     environment {
 //         DOCKERHUB_CREDENTIALS = credentials('DOCKERHUB_CREDENTIALS')
 //     }
-//     stages {
+    stages {
         stage('build-and-test') {
             steps {
                 sh 'pip install -r requirements.txt'
